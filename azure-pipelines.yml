@@ -7,9 +7,14 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '6.x'
+  dotnetSdkVersion: '8.x'
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'   # or a version your node-sass supports
+  displayName: 'Use Node.js 16'
+
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
